@@ -7,7 +7,7 @@ Instruções para qualquer agente de IA que trabalhe neste repositório. Leia an
 - Projeto final da disciplina ECOT11A (UNIFEI). API do e-commerce da **Origem Café**.
 - O autor é o Guilherme Carneiro Sampaio (matrícula 2024003567). O autor conhece Angular e está aprendendo React. Na API, a base é mais sólida, mas explique decisões de arquitetura quando forem novas para o autor.
 - Repositório irmão do front: `../origem-cafe-front`. Os endpoints aqui são o contrato que o front consome.
-- Fonte de verdade dos requisitos: `../../lab05_2024003567_ecot11a.pdf` (seções 4 a 6) e o agente `especialista-ecommerce-cafe` em `.claude/agents/` na raiz do curso.
+- Fonte de verdade dos requisitos: documento de requisitos do projeto (Entrega 1), mantido fora deste repositório.
 
 ## 2. Stack (não trocar sem alinhar com o autor)
 
