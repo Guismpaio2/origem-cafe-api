@@ -118,7 +118,7 @@ Regras de modelagem:
 - Endereço de entrega também é snapshot dentro do pedido.
 - Exclusão de conta (RE001) = anonimização: remove dados pessoais de `users`, mantém pedidos com `userId` anonimizado por obrigação fiscal.
 
-## 7. Regras de negócio (resumo; fonte completa no PDF do lab05, seção 5)
+## 7. Regras de negócio (resumo; fonte completa no documento de requisitos, seção 5)
 
 - **RN001** — avaliação só para pedido com status `Entregue` ou `Retirado`, do próprio cliente. Uma avaliação por usuário por produto.
 - **RN002** — café exige moagem e peso ao entrar no carrinho.
