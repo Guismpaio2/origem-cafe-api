@@ -8,7 +8,9 @@
     "build": "tsc",
     "start": "node dist/server.js",
     "typecheck": "tsc --noEmit",
-    "seed": "tsx src/seed/seed.ts"
+    "seed": "tsx src/seed/seed.ts",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage --coverage.include=\"src/services/**\""
   },
   "author": "",
   "license": "UNLICENSED",
