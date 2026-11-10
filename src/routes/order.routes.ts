@@ -6,6 +6,7 @@ import {
   pickupAvailabilityController,
   shippingQuoteController,
 } from '../controllers/order.controller.js';
+import { cepController } from '../controllers/account.controller.js';
 import { authenticate } from '../middlewares/authenticate.js';
 
 // Pedidos exigem login (RU003: o login é pedido só na hora de finalizar).
@@ -17,6 +18,9 @@ orderRouter.get('/:id', authenticate, getOrderController);
 // Entrega e retirada são públicas: o visitante pode simular o frete e ver os horários.
 export const shippingRouter = Router();
 shippingRouter.post('/quote', shippingQuoteController);
+
+export const cepRouter = Router();
+cepRouter.get('/:cep', cepController);
 
 export const pickupRouter = Router();
 pickupRouter.get('/availability', pickupAvailabilityController);

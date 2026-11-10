@@ -11,14 +11,23 @@ const CONSENT_VERSION = '1.0';
 
 type Role = 'cliente' | 'admin';
 
-// Nunca devolve passwordHash (RNF002).
+// Nunca devolve passwordHash (RNF002). Cada endereço sai com "id" (não "_id").
+type AddressLike = { _id?: { toString(): string } } & Record<string, unknown>;
+
+function addressToDto(address: unknown) {
+  const withToObject = address as { toObject?: () => AddressLike };
+  const plain: AddressLike = typeof withToObject.toObject === 'function' ? withToObject.toObject() : (address as AddressLike);
+  const { _id, ...rest } = plain;
+  return { id: _id ? String(_id) : '', ...rest };
+}
+
 export function toUserDto(user: { id: string; nome: string; email: string; role: Role; addresses: unknown[] }) {
   return {
     id: user.id,
     nome: user.nome,
     email: user.email,
     role: user.role,
-    addresses: user.addresses,
+    addresses: user.addresses.map(addressToDto),
   };
 }
 
