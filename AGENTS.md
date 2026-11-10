@@ -155,10 +155,9 @@ Qualquer violação de regra retorna `422` com código `BUSINESS_RULE_VIOLATION`
 - Não faça commit nem push sem o autor pedir.
 - Mensagens em **Conventional Commits** (`feat:`, `fix:`, `chore:`, `docs:`, `test:`), descrição em português.
 
-## 11. Estado atual
+## 11. Estado atual (10/11/2026)
 
-- Conexão com MongoDB via Mongoose e variáveis validadas com Zod (`config/env.ts`, `config/database.ts`).
-- Models `User` (com consentimento LGPD e `passwordHash` oculto) e `Product` (variantes em centavos).
-- Endpoints prontos: `GET /health`, `GET /products`, `GET /products/:id`, `POST /auth/register`, `POST /auth/login`, `GET /auth/me`.
-- Seed de desenvolvimento: `npm run seed` (8 produtos e 2 usuários de teste).
-- Pendente: validação da conexão com o MongoDB Atlas (IP precisa estar liberado no Atlas), carrinho no servidor, checkout, agendamento, assinaturas, avaliações, rotas admin e suíte de testes (Vitest + Supertest).
+- Entregue: catálogo, carrinho no servidor com união no login, checkout com entrega ou retirada agendada, frete, pagamento simulado, perfil e endereços com CEP pelo ViaCEP, exclusão anonimizada, assinatura mensal, avaliações de compradores e painel administrativo.
+- Testes: `npm test` (68 testes) e `npm run test:coverage` (95% das linhas dos services). Testes de integração usam MongoDB em memória.
+- Pendente: busca textual no catálogo (RF003), carga do checkout (k6, RNF001), pagamento real (gateway em sandbox), renovação automática da assinatura, e deploy com CI/CD (fim do projeto).
+- Decisão a confirmar: cancelamento em "Em Preparação" com justificativa (RN008), que o diagrama da v0.4 não prevê.
