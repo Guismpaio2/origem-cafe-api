@@ -157,6 +157,8 @@ Qualquer violação de regra retorna `422` com código `BUSINESS_RULE_VIOLATION`
 
 ## 11. Estado atual
 
-- Projeto criado (TypeScript + Express + Mongoose instalados).
-- `GET /api/v1/health` respondendo.
-- Ainda não há conexão com MongoDB nem modelos. Próximos passos guiados: `config/env.ts` (validação com Zod), conexão com o banco, `models/User`, rota de cadastro/login.
+- Conexão com MongoDB via Mongoose e variáveis validadas com Zod (`config/env.ts`, `config/database.ts`).
+- Models `User` (com consentimento LGPD e `passwordHash` oculto) e `Product` (variantes em centavos).
+- Endpoints prontos: `GET /health`, `GET /products`, `GET /products/:id`, `POST /auth/register`, `POST /auth/login`, `GET /auth/me`.
+- Seed de desenvolvimento: `npm run seed` (8 produtos e 2 usuários de teste).
+- Pendente: validação da conexão com o MongoDB Atlas (IP precisa estar liberado no Atlas), carrinho no servidor, checkout, agendamento, assinaturas, avaliações, rotas admin e suíte de testes (Vitest + Supertest).
