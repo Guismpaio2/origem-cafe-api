@@ -46,9 +46,35 @@ Outros comandos:
 | Comando             | O que faz                                    |
 | ------------------- | -------------------------------------------- |
 | `npm run dev`       | Servidor em modo de desenvolvimento          |
+| `npm run seed`      | Popula o banco com produtos e usuários de teste (apaga `users` e `products` antes) |
 | `npm run build`     | Compila TypeScript para `dist/`              |
 | `npm start`         | Executa a versão compilada (`dist/server.js`) |
 | `npm run typecheck` | Verifica tipos sem gerar arquivos            |
+
+## Dados de teste (seed)
+
+Depois de conectar o banco, rode `npm run seed`. Ele cria:
+
+- 8 produtos: 6 cafés (cada um com moagem "Grão inteiro" ou "Moído para filtro" e peso de 250 g ou 500 g) e 2 acessórios. Uma variante do Caparaó está sem estoque, para testar o estado "esgotado".
+- 2 usuários de teste, **somente para desenvolvimento**:
+
+| Papel   | E-mail                       | Senha          |
+| ------- | ---------------------------- | -------------- |
+| Admin   | `admin@origemcafe.test`      | `Admin#2026`   |
+| Cliente | `cliente@origemcafe.test`    | `Cliente#2026` |
+
+## Endpoints disponíveis
+
+Prefixo `/api/v1`. Erros seguem `{ "error": { "code", "message", "details" } }`.
+
+| Método | Rota                     | Acesso    | Descrição                                   |
+| ------ | ------------------------ | --------- | ------------------------------------------- |
+| GET    | `/health`                | público   | Verifica se a API está no ar                |
+| GET    | `/products`              | público   | Lista produtos (`?tipo=cafe`, `?page=1&limit=20`) |
+| GET    | `/products/:id`          | público   | Detalhe de um produto com variantes         |
+| POST   | `/auth/register`         | público   | Cadastro; exige `consentimentoLgpd: true`   |
+| POST   | `/auth/login`            | público   | Login; devolve um JWT de 15 min             |
+| GET    | `/auth/me`               | autenticado | Dados do usuário logado (`Authorization: Bearer <token>`) |
 
 ## Variáveis de ambiente
 
