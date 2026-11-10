@@ -5,6 +5,7 @@ import { authRouter } from './auth.routes.js';
 import { cartRouter } from './cart.routes.js';
 import { cepRouter, orderRouter, pickupRouter, shippingRouter } from './order.routes.js';
 import { productRouter } from './product.routes.js';
+import { subscriptionRouter } from './subscription.routes.js';
 
 // Prefixo fixo /api/v1 é aplicado em app.ts.
 export const apiRouter = Router();
@@ -21,4 +22,5 @@ apiRouter.use('/shipping', shippingRouter);
 apiRouter.use('/shipping/cep', cepRouter);
 apiRouter.use('/users', accountRouter);
 apiRouter.use('/admin', adminRouter);
+apiRouter.use('/subscriptions', subscriptionRouter);
 apiRouter.use('/pickup', pickupRouter);
