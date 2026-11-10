@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { accountRouter } from './account.routes.js';
+import { adminRouter } from './admin.routes.js';
 import { authRouter } from './auth.routes.js';
 import { cartRouter } from './cart.routes.js';
 import { cepRouter, orderRouter, pickupRouter, shippingRouter } from './order.routes.js';
@@ -19,4 +20,5 @@ apiRouter.use('/orders', orderRouter);
 apiRouter.use('/shipping', shippingRouter);
 apiRouter.use('/shipping/cep', cepRouter);
 apiRouter.use('/users', accountRouter);
+apiRouter.use('/admin', adminRouter);
 apiRouter.use('/pickup', pickupRouter);
