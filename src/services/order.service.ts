@@ -1,5 +1,6 @@
 import type { Types } from 'mongoose';
 import { AppError } from '../errors/app-error.js';
+import { clearCart, userKey } from './cart.service.js';
 import { OrderModel, type OrderDocument, type OrderStatus } from '../models/order.model.js';
 import { ProductModel } from '../models/product.model.js';
 import type { CreateOrderBody, ShippingQuoteBody } from '../validators/order.validator.js';
@@ -159,6 +160,8 @@ export async function createOrder(userId: string, input: CreateOrderBody, now = 
   }
 
   await order.save();
+  // O carrinho da conta é esvaziado quando o pedido é feito (RF004).
+  await clearCart(userKey(userId));
   return toOrderDto(order);
 }
 
